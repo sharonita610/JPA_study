@@ -117,6 +117,23 @@ class DepartmentRepositoryTest {
 
     }
 
+    @Test
+    @DisplayName("N+1 문제 해결 예시")
+    void testNPlus1Solution() {
+
+        List<Department> departments = departmentRepository.findAllIncludeEmployees();
+
+        departments.forEach(dept -> {
+            System.out.println("\n\n======= 사원 리스트 =======");
+
+            List<Employee> employees = dept.getEmployees();
+            System.out.println(employees);
+
+            System.out.println("\n\n");
+        });
+
+    }
+
 
 
 
