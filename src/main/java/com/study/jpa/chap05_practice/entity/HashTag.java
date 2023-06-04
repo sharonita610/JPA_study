@@ -25,7 +25,7 @@ public class HashTag {
     private  String tagName; // 해시태그 이름
 
 
-    @ManyToOne(fetch = FetchType.LAZY) // 지연로드 전략으로 필수
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // 지연로드 전략으로 필수
     @JoinColumn(name = "post_no")
     private Post post;
 
